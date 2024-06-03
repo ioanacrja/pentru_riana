@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="index3.css">
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #AF4469;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #AF4469;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <a class= "active" href="{% url 'home' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'blogs' %}">Blogs</a>
+        <a href="{% url 'chatbot' %}">ChatBot</a>
+</ul>
+
+<div class="box">HI!</div><br>
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #AF4469;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #F9B7DB;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #7C2647;
+            color: white;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        img {
+            float: right;
+        }
+
+        canvas {
+            max-width: 500px;
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body style="background-color:#FBD4E9">
+<div class="topnav">
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'about' %}">About</a>
+    <a class = "active" href="{% url 'blogs' %}">Blogs</a>
+    <a href="{% url 'chatbot' %}">ChatBot</a>
+</div>
+
+<h1> London, England- August 2023</h1>
+<img src="{% static 'images/ukflag.jpeg' %}" alt="ukflag" width="190" height="250">
+<br><br>
+<h3>Touristic Attractions</h3>
+<section>
+    <p>We arrived at the airport on Friday night.</p>
+    <p>The next day, we visited The Canary Wharf, a beautiful avenue of London and we enjoyed the beautiful view from Sky
+        Garden.</p>
+    <p>On this trip, we didn't really visit museums because we felt like we needed to see the beauty of London and we
+        didn't have enough time to visit everything.</p>
+    <p>Everyday, we made 20-30k steps while seeing the most beautiful English streets.</p>
+    <p>Of course, we stopped by at the Big Ben, the London Eye, China Town and we enjoyed feeding squirrels and ducks
+        in Hyde Park.</p>
+    <p>On our last days, we visited a small city near London, Corby. </p>
+</section>
+<h3>Traditions & Food</h3>
+
+<canvas id="myChart"></canvas>
+
+<section>
+    <p>The thing I saw only in London so far were the street artists: dancers, musicians and painters making art in the
+        center of the capital.</p>
+    <p>In terms of food traditons, there are not a lot.</p>
+    <p>Of course, we tasted the classics: english breakfast, fish&chips and tea, but, honestly, they were not my favourites.</p>
+</section>
+<h3>Photo Gallery</h3>
+<style>
+    div.gallery {
+        margin: 5px;
+        padding-left: 4%;
+        float: left;
+        width: 180px;
+    }
+
+    div.gallery:hover {
+        border: 1px solid #777;
+    }
+
+    div.gallery img {
+        width: 100%;
+        height: auto;
+    }
+
+    div.desc {
+        padding: 15px;
+        text-align: center;
+    }
+</style>
+
+<div class="gallery">
+    <a target="_blank" href="bus.jpeg">
+        <img src="{% static 'images/bus.jpeg' %}" alt="bus" width="600" height="400">
+    </a>
+    <div class="desc">Double Decker</div>
+</div>
+
+<div class="gallery">
+    <a target="_blank" href="canary.jpeg">
+        <img src="{% static 'images/canary.jpeg' %}" alt="canary" width="600" height="400">
+    </a>
+    <div class="desc">Canary Wharf Building</div>
+</div>
+
+<div class="gallery">
+    <a target="_blank" href="chinatown.jpeg">
+        <img src="{% static 'images/chinatown.jpeg' %}" alt="chinatown" width="600" height="400">
+    </a>
+    <div class="desc">China Town</div>
+</div>
+
+<div class="gallery">
+    <a target="_blank" href="fishchips.jpeg">
+        <img src="{% static 'images/fishchips.jpeg' %}" alt="fishchips" width="600" height="400">
+    </a>
+    <div class="desc">Fish&Chips</div>
+</div>
+
+<div class="gallery">
+    <a target="_blank" href="tower.jpeg">
+        <img src="{% static 'images/tower.jpeg' %}" alt="tower" width="600" height="400">
+    </a>
+    <div class="desc">Tower Bridge</div><br>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const dishes = ["Fish and Chips", "Shepherd’s Pie", "Black Pudding", "English Breakfast", "Yorkshire Tea"];
+    const grades = [9.5, 8.2, 3.7, 7.8, 6.6];
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: dishes,
+            datasets: [{
+                label: 'Popularity',
+                data: grades,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 99, 132, 0.8)',
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 99, 132, 0.4)',
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1,
+                        max: 10
+                    }
+                }]
+            }
+        }
+    });
+</script>
+</body>
+</html>

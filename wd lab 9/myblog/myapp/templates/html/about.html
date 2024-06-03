@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About me</title>
+    <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: #AF4469;
+    }
+    
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: #F9B7DB;
+      color: black;
+    }
+    
+    .topnav a.active {
+      background-color: #7C2647;
+      color: white;
+    }
+
+
+    body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  position: relative;
+}
+
+div.box {
+  width: 100px;
+  height: 100px;
+  background: #7C2647;
+  transition: width 2s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.box:hover {
+  width: 800px;
+}
+
+div.box p {
+  font-size: 35px; 
+  margin: 0;
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #90275B;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #5E1B3C;
+}
+
+    </style>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css'
+%}">
+    </head>
+    <body>
+    
+    <div class="topnav">
+      <a href="{% url 'home' %}">Home</a>
+      <a class = "active" href="{% url 'about' %}">About</a>
+      <a href="{% url 'blogs' %}">Blogs</a>
+      <a href="{% url 'chatbot' %}">ChatBot</a>
+    </div>
+
+
+    <div class="box"><p>HI!</p></div>
+
+    
+    </body>
+<style>
+    p {
+  text-align: center;
+    }
+    h3 {
+  text-align: center;
+    }
+    h1 {
+        padding: 30px;
+        font-size: 50px;
+    }
+img {
+  float: left;
+}
+.profile-img {
+    width: 220px;
+    height: 290px;
+    margin-left: 15px;
+}
+</style>
+<body style="background-color:#FBD4E9" >
+    <header>
+        <h1>About me</h1>
+    </header>
+    <main>
+      {% block content %}
+        <section>
+            <p> <img src="{% static 'images/profil.jpeg' %}" alt="eu" width="210" height="280"> My name is Cirja Ioana, I am a first year student at UVT, computer science in english. <br><br> I am 19 years old and I have many passions such as dancing, crocheting, playing the piano and reading. <br><br>
+                I love spending time with my favourite people: my family members, my boyfriend and my friends. <br> <br>
+                I also enjoy going on trips and holidays.
+            </p>
+                </section>
+                <hr>
+
+
+        <article>
+            <h3>Education</h3>
+            <section>
+                <p>"Grigore Moisil" Theoretical Highschool of Timisoara, grades 1-8.</p>
+                <p >"Grigore Moisil" Theoretical Highschool of Timisoara, grades 9-12.</p>
+                <p >Licenta - Universitatea de Vest, year 1.</p>
+                <hr>
+                <!-- Add more education entries as needed -->
+            </section>
+        </article>
+
+        <article>
+            <h3>Experience</h3>
+            <section>
+                <p>I don't have any experience in computer science. The only job I have ever had involved dancing.</p>
+                <p>I finished highschool in 2023, at Liceul Teoretic "Grigore Moisil", Timisoara.</p>
+                <p>I have been dancing since I was 3 at different dance schools, but for the last 4 years I have been dancing at White Steps Academy.</p>
+                <hr>
+                <!-- Add more experience entries as needed -->
+            </section>
+        </article>
+        <h3>Photo Gallery</h3>
+        <style>
+            div.gallery {
+              margin: 5px;
+              padding-left: 4%;
+              float: left;
+              width: 180px;
+            }
+            
+            div.gallery:hover {
+              border: 1px solid #777;
+            }
+            
+            div.gallery img {
+              width: 100%;
+              height: auto;
+            }
+            
+            div.desc {
+              padding: 15px;
+              text-align: center;
+            }
+            </style>
+            </head>
+            <body>
+            
+            <div class="gallery">
+              <a target="_blank" href="eu.jpeg">
+                <img src="{% static 'images/eu.jpeg' %}" alt="me" width="600" height="400">
+              </a>
+              <div class="desc">This is me:)</div>
+            </div>
+            
+            <div class="gallery">
+              <a target="_blank" href="boyf.jpeg">
+                <img src="{% static 'images/boyf.jpeg' %}" alt="boyfriend" width="600" height="400">
+              </a>
+              <div class="desc">This is my boyfriend.</div>
+            </div>
+            
+            <div class="gallery">
+              <a target="_blank" href="family.jpeg">
+                <img src="{% static 'images/family.jpeg' %}" alt="family" width="600" height="400">
+              </a>
+              <div class="desc">This is my family.</div>
+            </div>
+            
+            <div class="gallery">
+              <a target="_blank" href="friends.jpeg">
+                <img src="{% static 'images/friends.jpeg' %}" alt="friends" width="600" height="300">
+              </a>
+              <div class="desc">These are some of my friends.</div>
+            </div>
+
+            <div class="gallery">
+                <a target="_blank" href="IMG_1969.jpg">
+                  <img src="{% static 'images/IMG_1969.jpg' %}" alt="dance" width="600" height="400">
+                </a>
+                <div class="desc">This is me dancing.</div><br>
+              </div>
+        <article>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <hr>
+            <h3>The Sports I have practiced</h3>
+            <style>
+                 table, th, td {
+                    border-style:solid;
+                    border-color: #96D4D4;
+                }
+              tr:hover {background-color: #EE6494;}
+            </style><br>
+            <table style=" width:50%">
+              <tr>
+                <th>Sport</th>
+                <th>Period</th>
+                <th>Sports Club</th>
+              </tr>
+              <tr>
+                <td>Ballet</td>
+                <td>2008-2010</td>
+                <td>Reflex</td>
+              </tr>
+              <tr>
+                <td>Swimming</td>
+                <td>2011-2012</td>
+                <td>General School no. 30</td>
+              </tr>
+              <tr>
+                <td>Sportive Dance</td>
+                <td>2011-2013</td>
+                <td>"Casa Armatei"</td>
+              </tr>
+              <tr>
+                <td>Modern Dance</td>
+                <td>2013-2014</td>
+                <td>Matrix Dance</td>
+              </tr>
+              <tr>
+                <td>Karate</td>
+                <td>2014-2019</td>
+                <td>Fudoshin Martial Arts</td>
+              </tr>
+              <tr>
+                <td>Modern Dance</td>
+                <td>2017-2018</td>
+                <td>Mini-Mini Reflex</td>
+              </tr>
+              <tr>
+                <td>Hip-Hop Dance</td>
+                <td>2020-present</td>
+                <td>White Steps Academy</td>
+              </tr>
+            </table>
+        </article>
+
+ 
+        {% endblock %}
+    </main>
+
+     <footer>
+        <p>&copy; 2024 Ioana Cirja - Blog</p>
+     </footer>
+     <button onclick="topFunction()" id="myBtn" title="Go to top">↑</button>
+
+<script>
+let mybutton = document.getElementById("myBtn");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+</body>
+</html>

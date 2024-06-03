@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #AF4469;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #F9B7DB;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #7C2647;
+            color: white;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        img {
+            float: right;
+        }
+
+        canvas {
+            max-width: 500px;
+            max-height: 500px;
+        }
+    </style>
+    <title>Horsens, Aarhus, Skagen, Aalborg- Denmark - September 2023</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="background-color:#FBD4E9">
+<div class="topnav">
+    <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a class = "active" href="{% url 'blogs' %}">Blogs</a>
+        <a href="{% url 'chatbot' %}">ChatBot</a>
+</div>
+
+<h1> Horsens, Aarhus, Skagen, Aalborg- Denmark - September 2023</h1>
+<img src="{% static 'images/danishflag.jpeg' %}" alt="danishflag" width="190" height="250">
+<br><br>
+<h3>Touristic Attractions</h3>
+<section>
+    <p>We arrived on Tuesday evening, in Billund. </p>
+    <p>On the first day, after a long sleep, we visited the Prison Museum in Horsens.</p>
+    <p>On the second day, we went to Aarhus and walked in the city center. </p>
+    <p>We walked on the beach on the Baltic Sea, where we took some awesome pictures.</p>
+    <p>We also went north, to Skagen, where we visited a famous and very interesting landmark, Grennen, the meeting
+        point of North Sea and Baltic Sea.</p>
+    <p>Even though it was September, the weather was not our friend, so I recommend you take some jackets with you if
+        you plan on going in the north of Denmark. </p>
+    <p>We walked in the city center of Aalborg, which is a very beautiful city, and we also visied the Musical Park. In
+        this park, every tree has a famous song attached to it and you can play it by just pressing a button.</p>
+    <p>We went to the Bothanical Park, where we also saw a buch of butterflies.</p>
+    <p>We spent our last days in Horsens, walking in the city center and malls, and also eating at nice restaurants.</p>
+</section>
+<h3>Traditions & Food</h3>
+
+<canvas id="myChart"></canvas>
+
+<script>
+    const dishes = ["Smørrebrød", "Stjerneskud", "hot dog", "Stegt flæsk", "Danish pastries"];
+    const grades = [9.3, 8.5, 9.7, 6.1, 8.1];
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: dishes,
+            datasets: [{
+                label: 'Popularity',
+                data: grades,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 99, 132, 0.8)',
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 99, 132, 0.4)',
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1,
+                        max: 10
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+<section>
+    <p>Fish is a very common food in Denmark, given that it's a peninsula. </p>
+    <p>Another famous dish in Denmark is the hotdog, which you can find in every city center.</p>
+    <p>There is a famous chocolate milk in Denmark, Cocio, and I recommend you at least try it if you plan on visiting
+        this country.</p>
+    <p>Dannish people are not the ones to spend a lot of time in the kitchen, so you'll find a lot of pre-prepared meals
+        in the supermarkets, especially gratinated potatoes (which taste amazing).</p>
+</section>
+<h3>Photo Gallery</h3>
+<style>
+    div.gallery {
+        margin: 5px;
+        padding-left: 4%;
+        float: left;
+        width: 180px;
+    }
+
+    div.gallery:hover {
+        border: 1px solid #777;
+    }
+
+    div.gallery img {
+        width: 100%;
+        height: auto;
+    }
+
+    div.desc {
+        padding: 15px;
+        text-align: center;
+    }
+</style>
+
+<div class="gallery">
+    <a target="_blank" href="deer.jpeg">
+        <img src="{% static 'images/deer.jpeg' %}" alt="deer" width="600" height="400">
+    </a>
+    <div class="desc">Feeding deers</div>
+</div>
+
+<div class="gallery">
+    <a target="_blank" href="grennen.jpeg">
+        <img src="{% static 'images/grennen.jpeg' %}" alt="grennen" width="600" height="400">
+    </a>
+    <div class="desc">Grennen</div>
+</div>
+
+<div class="gallery">
+    <a target="_blank" href="horsens.jpeg">
+        <img src="{% static 'images/horsens.jpeg' %}" alt="horsens" width="600" height="400">
+    </a>
+    <div class="desc">Horsens</div>
+</div>
+
+<div class="gallery">
+    <a target="_blank" href="hotdogs.jpeg">
+        <img src="{% static 'images/hotdogs.jpeg' %}" alt="hotdogs" width="600" height="300">
+    </a>
+    <div class="desc">Dannish hotdogs</div>
+</div>
+
+<div class="gallery">
+    <a target="_blank" href="waves.jpeg">
+        <img src="{% static 'images/waves.jpeg' %}" alt="waves" width="600" height="400">
+    </a>
+    <div class="desc">Aarhus</div><br>
+</div>
+
+</body>
+</html>

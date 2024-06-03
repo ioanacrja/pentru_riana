@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<head>
+  {% load static %}
+    <style>
+       body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: #AF4469;
+    }
+    
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: #F9B7DB;
+      color: black;
+    }
+    
+    .topnav a.active {
+      background-color: #7C2647;
+      color: white;
+    }
+    p {
+  text-align: center;
+    }
+    h3 {
+  text-align: center;
+    }
+img {
+  float: right;
+}
+.chart-container {
+            width: 50%;
+            float: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romanian Dishes Popularity Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="background-color:#FBD4E9" >
+  <main>
+    {% block content %}
+    <div class="topnav">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'about' %}">About</a>
+      <a class = "active" href="{% url 'blogs' %}">Blogs</a>
+      <a href="{% url 'chatbot' %}">ChatBot</a>
+      </div>
+    <article></article>
+    <h1> Bucharest, Romania- September 2023</h1>
+    <img src="{% static 'images/romanianflag.jpeg' %}" alt="romanianflag" width="190" height="250">
+    <br><br>
+    <h3>Touristic Attractions</h3>
+        <section>
+           <p> We arrived at the Bucharest North train station on Tuesday morning. </p>
+           <p> Since we had 5 hours until our check-in, we decided to walk to the motel, while checking off of our list a few touristic attractions.</p>
+           <p> We passed by Herastrau Park, the famous House of Parliment and took some pictures, and, of course, we could not pass it without taking a look at the great People's Salvation Cathedral.</p>
+           <p> Our motel was near the center of Bucharest and I absolutely recommend you stay at a place that is as near as possible to the city center.</p>
+            <p>The beauty of Bucharest is best seen at night, so you should not waste a beautiful evening in Bucharest by walking in a periferic area.</p>
+            <p>We walked through the center all day, and finally, we remained at a beautiful cafe on the side of river "Dambovita".</p>
+            <p>The next day, we visited other tourist attractions such as The Little Paris Museum, Stavropoleos Monastery and the Revolution Square (the place where Nicolae Ceausescu had his last speech).</p>
+            <p>We walked on the Victory Avenue and we has a relaxing moment in Cismigiu Park.</p>
+            <p>After we took a delightful walk in the Bothanical Garden, we stopped for a great pizza at Pizza Hut.</p>
+            <p>On the last day, after the check-out, we walked again to the train station and stopped at Cotroceni Museum, which I really recommend visiting.</p>
+            <p>It is a beautiful place, full of history and affordable.</p>
+        </section>
+    <h3>Traditions & Food</h3>
+    <canvas id="myChart"></canvas>
+
+<script>
+    const dishes = ["PAPANASI", "MICI", "SARMALE", "MAMALIGA CU BRANZA SI SMANTANA", "CIORBA DE BURTA"];
+    const grades = [9.8, 9.5, 8.9, 7.7, 6.5];
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: dishes,
+            datasets: [{
+                label: 'Popularity',
+                data: grades,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 99, 132, 0.8)',
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 99, 132, 0.4)',
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1,
+                        max: 10
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+<style>
+    canvas {
+        max-width: 500px;
+        max-height: 500px;
+    }
+</style>
+
+        <section>
+            <p>Romanian food is absolutely delicious. It combines cultures and traditions of all the ancestors of this beautiful place.</p>
+            <p>Our favourite meal was "sarmale", which are pickled cabbage rolls filled with meat and rice, served with fresh bread and sour cream.</p>
+            <p>If you arrive in this balcanic area, you should definitely try "shaorma", which is a pita roll filled with all kinds of goodies.</p>
+            <p>And finally, our favourite dessert was "papanasi", which are the best doghnuts served with sour cream and homemade jam.</p>
+        </section>
+    <h3>Photo Gallery</h3>
+    <style>
+        div.gallery {
+          margin: 5px;
+          padding-left: 4%;
+          float: left;
+          width: 180px;
+        }
+        
+        div.gallery:hover {
+          border: 1px solid #777;
+        }
+        
+        div.gallery img {
+          width: 100%;
+          height: auto;
+        }
+        
+        div.desc {
+          padding: 15px;
+          text-align: center;
+        }
+        </style>
+        </head>
+        <body>
+        
+        <div class="gallery">
+          <a target="_blank" href="cismigiu.jpeg">
+            <img src="{% static 'images/cismigiu.jpeg' %}" alt="cismigiu" width="600" height="400">
+          </a>
+          <div class="desc">Cismigiu Park</div>
+        </div>
+        
+        <div class="gallery">
+          <a target="_blank" href="littleparis.jpeg">
+            <img src="{% static 'images/littleparis.jpeg' %}" alt="littleparis" width="600" height="400">
+          </a>
+          <div class="desc">Little Paris Museum</div>
+        </div>
+        
+        <div class="gallery">
+          <a target="_blank" href="manastire.jpeg">
+            <img src="{% static 'images/manastire.jpeg' %}" alt="manastire" width="600" height="400">
+          </a>
+          <div class="desc">Stavropoleos Monastery</div>
+        </div>
+        
+        <div class="gallery">
+          <a target="_blank" href="parlament.jpeg">
+            <img src="{% static 'images/parlament.jpeg' %}" alt="parlament" width="600" height="300">
+          </a>
+          <div class="desc">Parliment House</div>
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="pizza.jpg">
+              <img src="{% static 'images/pizza.jpeg' %}" alt="pizza" width="600" height="400">
+            </a>
+            <div class="desc">Me with a takeaway pizza</div><br>
+          </div>
+        </article>
+</body>
+{% endblock %}
+</main>
